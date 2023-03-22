@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Chess</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+  <body>
+
+
+<!--  ////////////////////////////////////////////////////////  -->
+
+    <div class="settings show">
+      <fieldset id="whiteIconSlc">
+        <legend>White</legend>
+        <i class="fa-solid fa-user-astronaut chosenIcon"></i>
+        <i class="fa-solid fa-user-ninja"></i>
+        <i class="fa-solid fa-user-secret"></i>
+        <i class="fa-solid fa-ghost"></i>
+        <i class="fa-brands fa-wolf-pack-battalion"></i>
+        <i class="fa-solid fa-skull"></i>
+      </fieldset>
+
+      <fieldset id="blackIconSlc">
+        <legend>Black</legend>
+        <i class="fa-solid fa-user-astronaut chosenIcon"></i>
+        <i class="fa-solid fa-user-ninja"></i>
+        <i class="fa-solid fa-user-secret"></i>
+        <i class="fa-solid fa-ghost"></i>
+        <i class="fa-brands fa-wolf-pack-battalion"></i>
+        <i class="fa-solid fa-skull"></i>
+      </fieldset>
+
+      <fieldset id="clockFS">
+        <legend>Clock</legend>
+        <span class="chosenTime">No &nbsp <i class="fa-solid fa-clock"></i></span>
+        <span style="padding: 1px 0 0 11px;">1 + 0</span>
+        <span style="padding: 1px 0 0 9px;">3 + 2</span>
+        <span style="padding: 1px 0 0 10px;">5 + 3</span>
+      </fieldset>
+
+      <button id="start">Start</button>
+    </div>
+
+
+
+
+
+<!--  ////////////////////////////////////////////////////////  -->
+
+
+
+    <div class="wrap">
+      <div class="blackAmmunition">
+        <i class="fa-solid fa-user-astronaut avatar"></i>
+        <span class="advantage"></span>
+      </div>
+
+      <div class="newPieceBox whiteNPB">
+        <div class="npbpc" data-pn="0" style="background: url('doc/rook.png'); background-size: 32px 32px"></div>
+        <div class="npbpc" data-pn="1" style="background: url('doc/knight.png'); background-size: 32px 32px"></div>
+        <div class="npbpc" data-pn="2" style="background: url('doc/bishop.png'); background-size: 32px 32px"></div>
+        <div class="npbpc" data-pn="3" style="background: url('doc/queen.png'); background-size: 32px 32px"></div>
+      </div>
+      <div class="newPieceBox blackNPB">
+        <div class="npbpc" data-pn="4" style="background: url('doc/rook-black.png'); background-size: 32px 32px"></div>
+        <div class="npbpc" data-pn="5" style="background: url('doc/knight-black.png'); background-size: 32px 32px"></div>
+        <div class="npbpc" data-pn="6" style="background: url('doc/bishop-black.png'); background-size: 32px 32px"></div>
+        <div class="npbpc" data-pn="7" style="background: url('doc/queen-black.png'); background-size: 32px 32px"></div>
+      </div>
+
+      <div class="blackClock">
+        <div class="clock twelve"></div> <span id="time" class="bTime">3:00</span>
+      </div>
+
+
+
+      <div class="board">
+
+        <div class="square ws full" id="a8" data-name="a8"><span>8</span> <img data-piece="1" id="leftRookBlack" data-moved="false" src="doc/rook-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ds full" id="b8" data-name="b8"><img data-piece="2" src="doc/knight-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ws full" id="c8" data-name="c8"><img data-piece="3" src="doc/bishop-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ds full" id="d8" data-name="d8"><img data-piece="4" src="doc/queen-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ws full" id="e8" data-name="e8"><img data-piece="5" id="blackKing" data-moved="false" src="doc/king-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ds full" id="f8" data-name="f8"><img data-piece="3" src="doc/bishop-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ws full" id="g8" data-name="g8"><img data-piece="2" src="doc/knight-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ds full" id="h8" data-name="h8"><img data-piece="1" id="rightRookBlack" data-moved="false" src="doc/rook-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+
+
+    <!--   ///////////////////////////////////////////////// -->
+
+
+        <div class="square ds full" id="a7" data-name="a7"><span>7</span> <img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ws full" id="b7" data-name="b7"><img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ds full" id="c7" data-name="c7"><img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ws full" id="d7" data-name="d7"><img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ds full" id="e7" data-name="e7"><img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ws full" id="f7" data-name="f7"><img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ds full" id="g7" data-name="g7"><img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+        <div class="square ws full" id="h7" data-name="h7"><img data-piece="7" data-fm="true" src="doc/pawn-black.png" width="60" height="60" data-color="black"><div class="circle"></div></div>
+
+
+<!--   ///////////////////////////////////////////////// -->
+
+
+        <div class="square ws" id="a6" data-name="a6"><span>6</span><div class="circle"></div></div>
+        <div class="square ds" id="b6" data-name="b6"><div class="circle"></div></div>
+        <div class="square ws" id="c6" data-name="c6"><div class="circle"></div></div>
+        <div class="square ds" id="d6" data-name="d6"><div class="circle"></div></div>
+        <div class="square ws" id="e6" data-name="e6"><div class="circle"></div></div>
+        <div class="square ds" id="f6" data-name="f6"><div class="circle"></div></div>
+        <div class="square ws" id="g6" data-name="g6"><div class="circle"></div></div>
+        <div class="square ds" id="h6" data-name="h6"><div class="circle"></div></div>
+
+
+  <!--   ///////////////////////////////////////////////// -->
+
+
+
+
+        <div class="square ds" id="a5" data-name="a5"><span>5</span><div class="circle"></div></div>
+        <div class="square ws" id="b5" data-name="b5"><div class="circle"></div></div>
+        <div class="square ds" id="c5" data-name="c5"><div class="circle"></div></div>
+        <div class="square ws" id="d5" data-name="d5"><div class="circle"></div></div>
+        <div class="square ds" id="e5" data-name="e5"><div class="circle"></div></div>
+        <div class="square ws" id="f5" data-name="f5"><div class="circle"></div></div>
+        <div class="square ds" id="g5" data-name="g5"><div class="circle"></div></div>
+        <div class="square ws" id="h5" data-name="h5"><div class="circle"></div></div>
+
+
+
+  <!--   ///////////////////////////////////////////////// -->
+
+
+        <div class="square ws" id="a4" data-name="a4"><span>4</span><div class="circle"></div></div>
+        <div class="square ds" id="b4" data-name="b4"><div class="circle"></div></div>
+        <div class="square ws" id="c4" data-name="c4"><div class="circle"></div></div>
+        <div class="square ds" id="d4" data-name="d4"><div class="circle"></div></div>
+        <div class="square ws" id="e4" data-name="e4"><div class="circle"></div></div>
+        <div class="square ds" id="f4" data-name="f4"><div class="circle"></div></div>
+        <div class="square ws" id="g4" data-name="g4"><div class="circle"></div></div>
+        <div class="square ds" id="h4" data-name="h4"><div class="circle"></div></div>
+
+
+    <!--   ///////////////////////////////////////////////// -->
+
+
+
+        <div class="square ds" id="a3" data-name="a3"><span>3</span><div class="circle"></div></div>
+        <div class="square ws" id="b3" data-name="b3"><div class="circle"></div></div>
+        <div class="square ds" id="c3" data-name="c3"><div class="circle"></div></div>
+        <div class="square ws" id="d3" data-name="d3"><div class="circle"></div></div>
+        <div class="square ds" id="e3" data-name="e3"><div class="circle"></div></div>
+        <div class="square ws" id="f3" data-name="f3"><div class="circle"></div></div>
+        <div class="square ds" id="g3" data-name="g3"><div class="circle"></div></div>
+        <div class="square ws" id="h3" data-name="h3"><div class="circle"></div></div>
+
+
+
+    <!--   ///////////////////////////////////////////////// -->
+
+
+
+        <div class="square ws full" id="a2" data-name="a2"><span>2</span><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+        <div class="square ds full" id="b2" data-name="b2"><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+        <div class="square ws full" id="c2" data-name="c2"><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+        <div class="square ds full" id="d2" data-name="d2"><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+        <div class="square ws full" id="e2" data-name="e2"><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+        <div class="square ds full" id="f2" data-name="f2"><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+        <div class="square ws full" id="g2" data-name="g2"><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+        <div class="square ds full" id="h2" data-name="h2"><img data-piece="6" data-fm="true" src="doc/pawn.png" width="60" height="60" data-color="white"><div class="circle"></div></div>
+
+
+    <!--   ///////////////////////////////////////////////// -->
+
+
+
+        <div class="square ds full" id="a1" data-name="a1"><span>1</span><img data-piece="1" id="leftRookWhite" data-moved="false" src="doc/rook.png" width="60" height="60" data-color="white"><label>a</label><div class="circle"></div></div>
+        <div class="square ws full" id="b1" data-name="b1"><img data-piece="2" src="doc/knight.png" width="60" height="60" data-color="white"><label>b</label><div class="circle"></div></div>
+        <div class="square ds full" id="c1" data-name="c1"><img data-piece="3" src="doc/bishop.png" width="60" height="60" data-color="white"><label>c</label><div class="circle"></div></div>
+        <div class="square ws full" id="d1" data-name="d1"><img data-piece="4" src="doc/queen.png" width="60" height="60" data-color="white"><label>d</label><div class="circle"></div></div>
+        <div class="square ds full" id="e1" data-name="e1"><img data-piece="5" id="whiteKing" data-moved="false" src="doc/king.png" width="60" height="60" data-color="white"><label>e</label><div class="circle"></div></div>
+        <div class="square ws full" id="f1" data-name="f1"><img data-piece="3" src="doc/bishop.png" width="60" height="60" data-color="white"><label>f</label><div class="circle"></div></div>
+        <div class="square ds full" id="g1" data-name="g1"><img data-piece="2" src="doc/knight.png" width="60" height="60" data-color="white"><label>g</label><div class="circle"></div></div>
+        <div class="square ws full" id="h1" data-name="h1"><img data-piece="1" id="rightRookWhite" data-moved="false" src="doc/rook.png" width="60" height="60" data-color="white"><label>h</label><div class="circle"></div></div>
+
+
+
+    <!--   ///////////////////////////////////////////////// -->
+
+      </div>
+
+
+
+      <div class="whiteAmmunition">
+        <i class="fa-solid fa-user-ninja avatar"></i>
+        <span class="advantage"></span>
+      </div>
+      <div class="whiteClock">
+        <div class="clock twelve"></div> <span id="time" class="wTime">3:00</span>
+      </div>
+
+
+      <div class="goContainer">
+        <div class="gameOver">
+          <div>
+            <i class="fa-solid fa-user-secret avatar winner"></i>
+            <span id="result">BLACK WON</span>
+          </div>
+          <button onclick="window.location.reload();">New Match</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+    <script src="movement.js"></script>
+  </body>
+</html>
